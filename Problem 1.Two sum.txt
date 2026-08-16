@@ -1,0 +1,57 @@
+As we can see, we have a list variable named nums and a variable named target.
+
+Our mission is to find two different numbers in the list whose sum is equal to target, and return their indices. We cannot use the same element twice.
+
+Ex1:
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0,1].
+
+Ex2:
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+
+For beginners
+
+We can use brute force to solve this problem.
+
+We will use two nested loops to check every possible pair of numbers.
+
+Time complexity: O(n²)
+Space complexity: O(1)
+
+Brute force is simple and works well when the list is small. However, as the number of elements increases, we have to check more and more pairs, making this approach inefficient.
+
+I think this is a good way for beginners to start learning because it helps us understand the problem before trying to optimize the solution.
+
+Our condition is:
+
+if nums[i] + nums[j] == target:
+    i1, j1 = i, j
+    break
+python code:
+nums = list(map(int,input().split()))
+target = int(input())
+i1,j1 = -1, -1
+for i in range(len(nums)):
+    for j in range(i+1,len(nums)):
+        if nums[i]+nums[j]==target:
+            i1,j1 = i,j
+        break
+if i1 != -1:
+    print(i1,j1)
+else:
+    print(-1)
+The loop: for j in range(i + 1, len(nums))
+
+Why am I using j = i + 1?
+
+I start the second loop from i + 1 because I cannot use the same element twice. It also prevents me from checking the same pair multiple times.
+
+That's all.
+
+The time complexity is O(n²) because, in the worst case, we may need to check almost every possible pair.
+
+The space complexity is O(1) because we only use a few extra variables and do not need any additional data structures.
+
+Although brute force is not the most efficient solution, it is a great approach for beginners because it is simple and helps us understand the problem before moving on to more optimized solutions.
