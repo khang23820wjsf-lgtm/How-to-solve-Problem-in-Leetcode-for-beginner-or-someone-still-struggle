@@ -18,8 +18,6 @@ We don't just care about whether our code works. We also want to know:
 
 An algorithm that works perfectly with 10 elements might completely fall apart when you give it 10 million.
 
----
-
 ## 2. HOW MANY TYPES OF ALGORITHM COMPLEXITY ARE THERE?
 
 There are two main types of algorithm complexity:
@@ -40,7 +38,7 @@ O(n log n)
 O(n²)
 O(2ⁿ)
 O(n!)
-```
+
 
 Here, **n represents the size of the input**.
 
@@ -399,7 +397,7 @@ When solving a problem, don't just ask:
 
 Also ask:
 
-> **"What happens if the input becomes 10 times, 100 times, or 1,000,000 times larger?"**
+> "What happens if the input becomes 10 times, 100 times, or 1,000,000 times larger?"
 
 That's when Algorithm Complexity starts to matter.
 
