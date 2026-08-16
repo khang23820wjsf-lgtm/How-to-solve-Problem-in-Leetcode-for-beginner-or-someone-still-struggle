@@ -1,0 +1,406 @@
+# FIRST THING WE NEED TO EXPLORE AND LEARN IS ALGORITHM COMPLEXITY
+
+## 1. WHAT THE HELL IS THAT?
+
+Algorithm complexity is a way to measure how much time and memory your code needs to solve a problem as the input size grows.
+
+For example, if I give you a very small input, like 5 characters or fewer, your computer can solve it quickly and easily.
+
+But what if I give you an input with ten million elements or more?
+
+Can your PC still handle it, or will it turn into a hot potato? 💀
+
+That's basically why we care about algorithm complexity.
+
+We don't just care about whether our code works. We also want to know:
+
+> **"What happens when the input becomes HUGE?"**
+
+An algorithm that works perfectly with 10 elements might completely fall apart when you give it 10 million.
+
+---
+
+## 2. HOW MANY TYPES OF ALGORITHM COMPLEXITY ARE THERE?
+
+There are two main types of algorithm complexity:
+
+### 2.1 TIME COMPLEXITY
+
+Time Complexity describes how much work an algorithm needs to do as the input size grows.
+
+It is usually described using **Big O notation**.
+
+Some common examples are:
+
+```text
+O(1)
+O(log n)
+O(n)
+O(n log n)
+O(n²)
+O(2ⁿ)
+O(n!)
+```
+
+Here, **n represents the size of the input**.
+
+The larger `n` gets, the more work the algorithm may need to do.
+
+For example:
+
+```python
+for i in range(n):
+    print(i)
+```
+
+If `n = 10`, the loop runs 10 times.
+
+If `n = 1,000,000`, the loop runs 1,000,000 times.
+
+So this algorithm has:
+
+```text
+Time Complexity: O(n)
+```
+
+Basically, if the input gets 10 times bigger, the amount of work also grows roughly 10 times.
+
+---
+
+### 2.2 SPACE COMPLEXITY
+
+Space Complexity describes how much **additional memory** an algorithm needs as the input size grows.
+
+For example:
+
+```python
+arr = [0] * n
+```
+
+If `n` gets bigger, the array also gets bigger.
+
+Therefore:
+
+```text
+Space Complexity: O(n)
+```
+
+On the other hand:
+
+```python
+x = 10
+y = 20
+z = x + y
+```
+
+The amount of memory used doesn't depend on `n`.
+
+So we consider it:
+
+```text
+Space Complexity: O(1)
+```
+
+In simple terms:
+
+> **Time Complexity = How much work does my algorithm have to do?**
+
+> **Space Complexity = How much extra memory does my algorithm need?**
+
+---
+
+# 3. WHAT THE HELL IS BIG O?
+
+Big O notation is a way to describe how an algorithm's resource usage grows as the input size grows.
+
+The important word here is **"grows."**
+
+Big O doesn't tell us the exact number of seconds our program will take.
+
+For example, saying an algorithm is `O(n)` does NOT mean:
+
+> "This program takes exactly 1 second."
+
+It means that the amount of work grows roughly in proportion to `n`.
+
+---
+
+## 4. THE MOST COMMON TIME COMPLEXITIES
+
+### O(1) — CONSTANT TIME
+
+The amount of work stays roughly the same regardless of how large the input is.
+
+```python
+print(arr[0])
+```
+
+Whether `arr` has 10 elements or 10 million elements, accessing `arr[0]` takes roughly the same amount of work.
+
+```text
+Time Complexity: O(1)
+```
+
+This is the dream.
+
+---
+
+### O(log n) — LOGARITHMIC TIME
+
+The algorithm reduces the problem significantly at each step.
+
+A classic example is **Binary Search**.
+
+Instead of checking every element, Binary Search repeatedly cuts the search space in half.
+
+For example:
+
+```text
+1,000,000 elements
+        ↓
+500,000
+        ↓
+250,000
+        ↓
+125,000
+        ↓
+...
+        ↓
+1
+```
+
+That's why Binary Search runs in:
+
+```text
+O(log n)
+```
+
+Pretty damn efficient. 🔥
+
+---
+
+### O(n) — LINEAR TIME
+
+The amount of work grows proportionally with the input size.
+
+```python
+for x in arr:
+    print(x)
+```
+
+If there are:
+
+```text
+10 elements → about 10 operations
+1,000 elements → about 1,000 operations
+1,000,000 elements → about 1,000,000 operations
+```
+
+Therefore:
+
+```text
+Time Complexity: O(n)
+```
+
+---
+
+### O(n log n)
+
+This commonly appears in efficient sorting algorithms such as **Merge Sort** and **Heap Sort**.
+
+It is slower than `O(n)` but much better than `O(n²)` for large inputs.
+
+For example:
+
+```text
+n = 1,000
+n log n ≈ 10,000
+```
+
+while:
+
+```text
+n² = 1,000,000
+```
+
+The difference becomes absolutely massive when `n` gets large.
+
+---
+
+### O(n²) — QUADRATIC TIME
+
+This often happens when we have a loop inside another loop.
+
+```python
+for i in range(n):
+    for j in range(n):
+        print(i, j)
+```
+
+The inner loop runs `n` times for every iteration of the outer loop.
+
+So:
+
+```text
+n × n = n²
+```
+
+Therefore:
+
+```text
+Time Complexity: O(n²)
+```
+
+For small inputs, this might be completely fine.
+
+But when `n` becomes huge...
+
+💀
+
+Your CPU may start questioning its life choices.
+
+---
+
+# 5. WHY DO WE IGNORE CONSTANTS?
+
+Suppose we have:
+
+```python
+for i in range(n):
+    print(i)
+```
+
+That's:
+
+```text
+O(n)
+```
+
+Now imagine:
+
+```python
+for i in range(n):
+    print(i)
+
+for i in range(n):
+    print(i)
+```
+
+Technically, that's `2n` operations.
+
+But in Big O notation:
+
+```text
+O(2n) = O(n)
+```
+
+We ignore constant factors because we're interested in how the algorithm **scales** when `n` becomes extremely large.
+
+Similarly:
+
+```text
+O(n / 2) = O(n)
+O(3n)   = O(n)
+O(100n) = O(n)
+```
+
+The constant might matter for actual runtime, but it doesn't change the growth rate.
+
+---
+
+# 6. SEQUENTIAL LOOPS VS NESTED LOOPS
+
+This confused the hell out of me at first.
+
+Two loops next to each other:
+
+```python
+for i in range(n):
+    ...
+
+for j in range(n):
+    ...
+```
+
+give us:
+
+```text
+O(n + n)
+= O(2n)
+= O(n)
+```
+
+But nested loops:
+
+```python
+for i in range(n):
+    for j in range(n):
+        ...
+```
+
+give us:
+
+```text
+O(n × n)
+= O(n²)
+```
+
+So:
+
+> **Two loops do NOT automatically mean O(n²).**
+
+It depends on whether they are **nested or sequential**.
+
+---
+
+# 7. TIME COMPLEXITY CHEAT SHEET
+
+From generally faster growth to slower growth:
+
+```text
+O(1)
+    ↓
+O(log n)
+    ↓
+O(n)
+    ↓
+O(n log n)
+    ↓
+O(n²)
+    ↓
+O(2ⁿ)
+    ↓
+O(n!)
+```
+
+As `n` gets larger, the difference between these complexities becomes enormous.
+
+For small inputs, almost anything can work.
+
+For massive inputs, choosing the right algorithm can be the difference between:
+
+> "Done in a fraction of a second."
+
+and:
+
+> "See you tomorrow." 💀
+
+---
+
+# 8. ONE IMPORTANT THING
+
+Big O is not about making your code look complicated or simple.
+
+It is about understanding how your algorithm **scales**.
+
+When solving a problem, don't just ask:
+
+> "Does my code work?"
+
+Also ask:
+
+> **"What happens if the input becomes 10 times, 100 times, or 1,000,000 times larger?"**
+
+That's when Algorithm Complexity starts to matter.
+
+And that's also when we stop writing code that merely **works** and start writing code that can actually **survive**. 🔥
