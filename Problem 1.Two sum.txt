@@ -30,82 +30,38 @@ if nums[i] + nums[j] == target:
     i1, j1 = i, j
     break
 -python code:
-nums = list(map(int,input().split()))
-target = int(input())
-i1,j1 = -1, -1
-for i in range(len(nums)):
-    for j in range(i+1,len(nums)):
-        if nums[i]+nums[j]==target:
-            i1,j1 = i,j
-        	break
-if i1 != -1:
-    print(i1,j1)
-else:
-    print(-1)
+class Solution:
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+        return []
 -C++ code:
-#include <iostream>
-#include <vector>
-using namespace std;
-
-int main() {
-    vector<int> nums;
-    int x;
-
-    while (cin >> x) {
-        nums.push_back(x);
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        for (int i = 0; i < nums.size(); i++) {
+            for (int j = i + 1; j < nums.size(); j++) {
+                if (nums[i] + nums[j] == target) {
+                    return {i, j};
+                }
+            }
+        }
+        return {};
     }
-
-    int target;
-    cin.clear();
-    cin >> target;
-
-    int i1 = -1, j1 = -1;
-
-    for (int i = 0; i < nums.size(); i++) {
-        for (int j = i + 1; j < nums.size(); j++) {
-            if (nums[i] + nums[j] == target) {
-                i1 = i;
-                j1 = j;
-                break;
+};
+-Java code:
+var twoSum = function(nums, target) {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+                return [i, j];
             }
         }
     }
-
-    if (i1 != -1) {
-        cout << i1 << " " << j1 << endl;
-    } else {
-        cout << -1 << endl;
-    }
-
-    return 0;
-}
--Java code:
-const fs = require("fs");
-
-const input = fs.readFileSync(0, "utf8").trim().split("\n");
-
-const nums = input[0].split(" ").map(Number);
-const target = Number(input[1]);
-
-let i1 = -1;
-let j1 = -1;
-
-for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-        if (nums[i] + nums[j] === target) {
-            i1 = i;
-            j1 = j;
-            break;
-        }
-    }
-}
-
-if (i1 !== -1) {
-    console.log(i1, j1);
-} else {
-    console.log(-1);
-}
-The loop: for j in range(i + 1, len(nums))
+    return [];
+};
 
 Why am I using j = i + 1?
 
