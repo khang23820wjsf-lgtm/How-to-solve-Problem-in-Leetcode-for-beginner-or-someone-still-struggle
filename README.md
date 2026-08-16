@@ -135,7 +135,7 @@ The first solution doesn't have to be beautiful.
 
 ## 🔥 Current Progress
 
-**10 / 4027+ problems**
+**12 / 4027+ problems**
 
 Still a ridiculously long way to go.
 
