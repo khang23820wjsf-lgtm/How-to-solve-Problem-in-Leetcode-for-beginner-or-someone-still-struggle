@@ -39,10 +39,10 @@ I'm focusing on **understanding the problems**, not just collecting solved badge
 
 | Difficulty | Solved |
 | ---------- | ------ |
-| 🟢 Easy    |        |
-| 🟡 Medium  |        |
-| 🔴 Hard    |        |
-| **Total**  | **10** |
+| 🟢 Easy    |  8      |
+| 🟡 Medium  |   4     |
+| 🔴 Hard    |     0   |
+| **Total**  | **12** |
 
 > This table will be updated as I solve more problems.
 
@@ -52,10 +52,10 @@ I'm focusing on **understanding the problems**, not just collecting solved badge
 
 ### Fundamentals
 
-* [ ] Time Complexity
-* [ ] Space Complexity
-* [ ] Big O Notation
-* [ ] Arrays
+* [x ] Time Complexity
+* [ x] Space Complexity
+* [ x] Big O Notation
+* [x ] Arrays
 * [ ] Strings
 * [ ] Hash Tables
 * [ ] Linked Lists
