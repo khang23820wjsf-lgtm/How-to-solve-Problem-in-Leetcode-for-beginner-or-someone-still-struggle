@@ -40,9 +40,9 @@ I'm focusing on **understanding the problems**, not just collecting solved badge
 | Difficulty | Solved |
 | ---------- | ------ |
 | 🟢 Easy    |  8      |
-| 🟡 Medium  |   4     |
-| 🔴 Hard    |     0   |
-| **Total**  | **12** |
+| 🟡 Medium  |   5     |
+| 🔴 Hard    |    1   |
+| **Total**  | **14** |
 
 > This table will be updated as I solve more problems.
 
